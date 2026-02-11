@@ -119,3 +119,12 @@ REPO_URL = f"https://{GITHUB_TOKEN}@github.com/v7vax/tu-repositorio.git"
 # Clonar el repositorio en el entorno de Colab
 !git clone {REPO_URL}
 %cd tu-repositorio
+def sync_to_github(file_path, commit_message):
+    try:
+        os.system(f'git add {file_path}')
+        os.system(f'git commit -m "{commit_message}"')
+        os.system('git push origin main')
+        return ">> SINCRONIZACIÓN EXITOSA CON GITHUB"
+    except Exception as e:
+        return f">> ERROR DE SINCRONIZACIÓN: {e}"
+        
