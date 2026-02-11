@@ -109,3 +109,13 @@ def main_logic(message):
     except Exception as e:
         bot.reply_to(message, f">> INTERRUPCIÓN EN FLUJO DE DATOS: {str(e)}")
 !pip install pyTelegramBotAPI google-generativeai Pillow
+import os
+from google.colab import userdata
+
+# Datos de tu cuenta v7vax
+GITHUB_TOKEN = userdata.get('GITHUB_TOKEN') # Guárdalo en los secretos 🔑
+REPO_URL = f"https://{GITHUB_TOKEN}@github.com/v7vax/tu-repositorio.git"
+
+# Clonar el repositorio en el entorno de Colab
+!git clone {REPO_URL}
+%cd tu-repositorio
